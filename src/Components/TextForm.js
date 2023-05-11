@@ -7,7 +7,10 @@ export default function TextForm(props) {
     // console.log("clicked");
     let newText = text.toUpperCase();
     setText(newText);
-    props.showAlert("ALl the txt have been changed to the uppercase","Success")
+    props.showAlert(
+      "ALl the txt have been changed to the uppercase",
+      "Success"
+    );
   };
   const handleDownClick = () => {
     // console.log("clicked");
@@ -38,7 +41,6 @@ export default function TextForm(props) {
         className="container"
         style={{
           Color: props.mode === "dark" ? "light" : "white",
-         
         }}
       >
         <div className="mb-3  ">
@@ -49,9 +51,11 @@ export default function TextForm(props) {
             onChange={handleOnChange}
             id="body"
             rows="9"
-            style={{ backgroundColor: props.mode === "dark" ? "grey " : "white"}}
+            style={{
+              backgroundColor: props.mode === "dark" ? "grey " : "white",
+            }}
           ></textarea>
-          <div/>
+          <div />
           <button className="btn btn btn-primary" onClick={handleUpClick}>
             Conver to UpperCase
           </button>

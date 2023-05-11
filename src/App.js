@@ -1,9 +1,10 @@
 import "./App.css";
 import Navbar from "./Components/Navbar";
-import { useState } from "react";
+import React,{ useState } from "react";
 import TextForm from "./Components/TextForm";
 import Alert from "./Components/Alert";
-// import About from './Components/About';
+import About from "./Components/About";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState("light"); //it will tell whether dark mode is enabled or not
   const [alert, setAlert] = useState(null); //we are not naming below funcion to be set alert because that
@@ -18,7 +19,7 @@ function App() {
       type: type,
     });
     setTimeout(() => {
-      setAlert(null)
+      setAlert(null);
     }, 3000);
   };
   const toggleMode = () => {
@@ -26,6 +27,10 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "grey";
       showAlert("Dark Mode has Been Enabled", "success");
+      document.title = "Mani-text: Dark Mode";
+      setInterval(() => {
+        document.title = "your phone have virus, please install antivirus";
+      }, 1500);
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
@@ -35,14 +40,15 @@ function App() {
   return (
     <>
       <Navbar title={"texttutils"} mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert}   />
+      <Alert alert={alert} />
       <div className="container">
-        <TextForm
-          heading={"Enter the text to analyze"}
-          mode={mode}
-          toggleMode={toggleMode}
-          showAlert={showAlert}
-        />
+        
+        `<TextForm
+                  heading={"Enter the text to analyze"}
+                  mode={mode}
+                  toggleMode={toggleMode}
+                  showAlert={showAlert}
+                />
       </div>
     </>
   );
